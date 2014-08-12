@@ -16,7 +16,7 @@ public class AddPlayer extends Activity implements OnClickListener {
 
 	private void init() {
 		playerName = (EditText) findViewById(R.id.editText_player_name);
-		addplayer = (Button) findViewById(R.id.button_add_player);
+		addplayer = (Button) findViewById(R.id.button_addPlayer);
 		addplayer.setOnClickListener(this);
 	}
 
@@ -25,12 +25,14 @@ public class AddPlayer extends Activity implements OnClickListener {
 		String name = playerName.getText().toString();
 		if (name == null || name.length() == 0) {
 			Toast.makeText(getApplicationContext(), "Name must be entered.",
-					Toast.LENGTH_SHORT);
+					Toast.LENGTH_SHORT).show();
+			
+		} else {
+			Intent resultData = new Intent();
+			resultData.putExtra("player", name);
+			setResult(RESULT_OK, resultData);
+			finish();
 		}
-		Intent resultData = new Intent();
-		resultData.putExtra("player", name);
-		setResult(RESULT_OK, resultData);
-		finish();
 	}
 
 	@Override

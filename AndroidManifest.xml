@@ -28,7 +28,7 @@
             android:label="Set Up"
             android:screenOrientation="landscape" >
             <intent-filter>
-                <action android:name="android.intent.action.SetUpGame" />
+                <action android:name="android.intent.action.SETUPGAME" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -38,7 +38,27 @@
             android:label="New Player"
             android:screenOrientation="landscape" >
             <intent-filter>
-                <action android:name="android.intent.action.AddPlayer" />
+                <action android:name="android.intent.action.ADDPLAYER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name=".NightPhase"
+            android:label="Night Phase"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.NIGHTPHASE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DayPhase"
+            android:label="Day Phase"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.DAYPHASE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

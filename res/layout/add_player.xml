@@ -11,9 +11,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Enter Player Name" >
-
-        <requestFocus />
+        android:hint="Enter Player Name"
+        android:textColor="#9C0003" >
     </EditText>
 
     <Button
