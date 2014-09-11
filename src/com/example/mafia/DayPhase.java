@@ -29,67 +29,54 @@ public class DayPhase extends ListActivity implements OnClickListener {
 		for (String play : players) {
 			p.add(new Player(play));
 		}
-	    adapter = new DayPhaseAdapter(this, p, R.layout.villager_list_row);
+		adapter = new DayPhaseAdapter(this, p, R.layout.villager_list_row);
 		setListAdapter(adapter);
-		nightPhase = (Button)findViewById(R.id.button_start_night_phase);
+		nightPhase = (Button) findViewById(R.id.button_start_night_phase);
 		nightPhase.setOnClickListener(this);
-		
-		
+
 	}
 
 	@Override
 	public void onClick(View v) {
 		int max = 0;
-		for(Player player : p){
-			if(player.getVotes() > max){
+		for (Player player : p) {
+			if (player.getVotes() > max) {
 				max = player.getVotes();
 			}
-			
+
 		}
 		ArrayList<Player> maxPlayers = new ArrayList<Player>();
-		for(Player player : p){
-			if(player.getVotes() == max){
+		for (Player player : p) {
+			if (player.getVotes() == max) {
 				maxPlayers.add(player);
 			}
 		}
-		if(maxPlayers.size() > 1){
+		if (maxPlayers.size() > 1) {
 			String MaxPlayerNames = "";
-			for(Player p : maxPlayers){
-				MaxPlayerNames += (p.getName()+",");
+			for (Player p : maxPlayers) {
+				MaxPlayerNames += (p.getName() + ",");
 			}
 			StringBuilder m = new StringBuilder(MaxPlayerNames);
-			m.setCharAt(m.length() - 1 , '.');
-			Toast.makeText(getApplicationContext(),"Must break tie: " +  m, Toast.LENGTH_LONG).show();
-		}
-		else{
-			for(int i = 0; i < p.size(); i++){
-				if(p.get(i) == maxPlayers.get(0)){
+			m.setCharAt(m.length() - 1, '.');
+			Toast.makeText(getApplicationContext(), "Must break tie: " + m,
+					Toast.LENGTH_LONG).show();
+		} else {
+			for (int i = 0; i < p.size(); i++) {
+				if (p.get(i) == maxPlayers.get(0)) {
 					p.remove(i);
 					break;
 				}
 			}
-			Intent i = new Intent(this , NightPhase.class);
+			Intent i = new Intent(this, NightPhase.class);
 			String[] names = new String[p.size()];
-			for(int index = 0; index < p.size(); index++){
+			for (int index = 0; index < p.size(); index++) {
 				names[index] = p.get(index).getName();
 			}
 			i.putExtra("players", names);
 			startActivity(i);
 			finish();
 		}
-		
 
 	}
-
-	
-
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-		p.get(position).addVote();
-		adapter.notifyDataSetChanged();
-	}
-	
-	
 
 }

@@ -25,6 +25,10 @@ public class Player {
 	public void addVote(){
 		votes++;
 	}
+	
+	public void subVote(){
+		votes--;
+	}
 
 	
 

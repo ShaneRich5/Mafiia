@@ -30,5 +30,23 @@
             android:text="0"
             android:paddingLeft="5dp"
             android:textSize="30sp"/>
+
+        <ImageButton
+            android:id="@+id/subVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="58dp"
+            android:src="@drawable/delete_button" />
+
+        <ImageButton
+            android:id="@+id/addVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/mafia_start_ico" />
+
     </RelativeLayout>
 </LinearLayout>

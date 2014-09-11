@@ -12,16 +12,10 @@
         android:text="Game Setup"
         android:textColor="#9C0003" />
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="#DEDAD0" />
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp" >
 
         <Button
             android:id="@+id/button_add_player"
@@ -42,5 +36,13 @@
             android:textColor="#9C0003" >
         </Button>
     </RelativeLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="#DEDAD0" >
+    </ListView>
 
 </LinearLayout>

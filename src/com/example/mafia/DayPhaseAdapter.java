@@ -1,19 +1,17 @@
 package com.example.mafia;
-
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class DayPhaseAdapter extends BaseAdapter {
+public class DayPhaseAdapter extends BaseAdapter implements OnClickListener {
 	private Activity activity;
 	private ArrayList<Player> players;
 	private static LayoutInflater inflater = null;
@@ -51,9 +49,24 @@ public class DayPhaseAdapter extends BaseAdapter {
 		list_item = players.get(position);
 		TextView name = (TextView) vi.findViewById(R.id.villager_name);
 		TextView votes = (TextView) vi.findViewById(R.id.number_of_votes);
+		ImageButton addVote = (ImageButton) vi.findViewById(R.id.addVote);
+		ImageButton subVote = (ImageButton) vi.findViewById(R.id.subVote);
+		addVote.setOnClickListener(this);
+		addVote.setTag(position);
+		subVote.setOnClickListener(this);
+		subVote.setTag(position);
 		name.setText(list_item.getName());
 		votes.setText(list_item.getVotes() + "");
 		return vi;
 	}
 
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.addVote) {
+			players.get((Integer) v.getTag()).addVote();
+		} else {
+			players.get((Integer) v.getTag()).subVote();
+		}
+		notifyDataSetChanged();
+	}
 }
