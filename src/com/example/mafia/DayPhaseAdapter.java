@@ -66,6 +66,9 @@ public class DayPhaseAdapter extends BaseAdapter implements OnClickListener {
 			players.get((Integer) v.getTag()).addVote();
 		} else {
 			players.get((Integer) v.getTag()).subVote();
+			if(players.get((Integer)v.getTag()).getVotes() < 0){
+				players.get((Integer) v.getTag()).addVote();
+			}
 		}
 		notifyDataSetChanged();
 	}
